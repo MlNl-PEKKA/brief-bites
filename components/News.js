@@ -16,7 +16,7 @@ export default function News({data}){
     const [ categ, setCateg] = useState(0);
     return (
         <div className={styles.newsContainer}>
-            <h1 style={{fontSize:'20rem'}}>News</h1>
+            <h1 id="news" style={{fontSize:'20rem'}}>News</h1>
             <div className={styles.newsCategories} style={{top:sticky,backgroundColor:'black'}}>
                 {categories.map((category,i)=>{return <CategoryButton key={i} id={i} categ={categ} title={category} setCateg={setCateg}/>})}
             </div>

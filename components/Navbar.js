@@ -30,11 +30,12 @@ export default function Navbar(){
     },[scrollDir])
     return(
     <div className={nav} style={{backgroundColor:navBgColor}}>
-        <Link style={{margin:'0 25rem 0 0'}} href="/"><Logo/></Link>
+        <Link style={{margin:'0 14rem 0 0'}} href="/"><Logo/></Link>
         <Link className={styles.navbarLink} style={{margin:'0 2.5rem'}} href="/">Home</Link>
-        <Link className={styles.navbarLink} style={{margin:'0 2.5rem'}} href="/">News</Link>
-        <Link className={styles.navbarLink} style={{margin:'0 2.5rem'}} href="https://huggingface.co/">Resorces</Link>
-        <Link className={styles.navbarLink} style={{margin:'0 2.5rem'}} href="https://huggingface.co/">Repository</Link>
+        <a className={styles.navbarLink} style={{margin:'0 2.5rem'}} href="#news">News</a>
+        <Link className={styles.navbarLink} style={{margin:'0 2.5rem'}} href="https://huggingface.co/">Resources</Link>
+        <Link className={styles.navbarLink} style={{margin:'0 2.5rem'}} href="https://github.com/PunithG105/brief-bites">Site repository</Link>
+        <Link className={styles.navbarLink} style={{margin:'0 2.5rem'}} href="https://github.com/PunithG105/brief-bites-api">API repository</Link>
         <Link className={styles.navbarLink} style={{margin:'0 2.5rem'}} href="/summarize"><button>Summarize</button></Link>
     </div>
     )
