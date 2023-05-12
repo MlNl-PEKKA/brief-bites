@@ -1,0 +1,41 @@
+.newsContainer{
+    margin-top: 10vh;
+    width: 100vw;
+    min-height: 100vh;
+    background-color: black;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+.newsCategories{
+    position: sticky;
+    position: -webkit-sticky;
+    height: 160px;
+    width: 98vw;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-evenly;
+    flex-direction: row;
+    background-color: black;
+    z-index: 9;
+    transform: translateX(-0.6vw);
+    transition: 0.5s;
+}
+.newsCategories>button{
+    margin-bottom: 2vh;
+    padding: 5px 15px 10px 15px;
+}
+.newsCategoriesTitle{
+    color: gray;
+    margin-left: 1vw;
+}
+.newsCardContainer{
+    max-width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
