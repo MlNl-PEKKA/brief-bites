@@ -16,6 +16,7 @@ export default function Loading() {
           animationData={defaultOptions.animationData}
           loop={defaultOptions.loop}
         />
+        Loading...
       </div>
     );
   }
