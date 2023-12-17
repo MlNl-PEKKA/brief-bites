@@ -1,27 +1,30 @@
-import { useRef } from 'react';
+import Loading from '@/components/loading';
+import { useRouter } from 'next/router';
+import { useRef, useState } from 'react';
 import styles from './Article.module.css';
 export default function Summarization(){
+    const [loading, setLoading] = useState(false);
     const urlRef = useRef(null);
-    async function fetcher(txt){
-      const data = await fetch('http://localhost:8000/community',{
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify({'url':txt}),
-              cache: 'default'
-          }).then(response=>response.json()).then((result)=>{return result});
-    }
+    const router = useRouter();
     async function submitHandler(e){
+        setLoading(true);
         e.preventDefault();
         let txt = (urlRef.current.value).trim();
         if(txt!==''){
             urlRef.current.value=''
-            console.log(txt)
-            await fetcher(txt).then((data)=>{console.log('lol2',data)})
+            const data = await fetch('http://localhost:8000/community',{
+              method: "POST",
+              headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+              },
+              body: JSON.stringify({'url':txt}),
+              cache: 'default'
+          }).then(response=>response.json()).then((result)=>{setLoading(false);router.replace(result.redirect)});
         }
     }
     return (
+        loading?<Loading />:
         <div className={styles.newsContainer2}>
             <h1>Have a link already?</h1>
             <br />

@@ -7,5 +7,7 @@
 			"path": "..\\..\\..\\..\\Web Development\\FastAPI"
 		}
 	],
-	"settings": {}
+	"settings": {
+		"git.ignoreLimitWarning": true
+	}
 }

@@ -15,11 +15,19 @@ const firebaseConfig = {
 };
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
+const collections = ['business','community','entertainment','health','international','local','national','political','science','sports','technology','top-stories']
+let result = {"result":[]}
 async function handler(req, res) {
   try{
-    const querySnapshot = await getDocs(collection(db, "cities"));
-    let docSnap = await getDoc(docRef);
-    await res.status(200).json(docSnap.data);
+      collections.map((c,i)=>{
+      let category = {"category":c,"articles":[]}
+      const querySnapshot = await getDocs(collection(db, c));
+      querySnapshot.forEach((doc)=>{
+        category.articles.push(doc.data());
+      })
+      result.result.push(category)
+    })
+    await res.status(200).json(result);
   }
   catch{
     console.log("ERROR")

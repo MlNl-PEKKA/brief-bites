@@ -59,7 +59,7 @@ export default function Article({data}){
             <div className={styles.mainCardInfo}>
                 <h1>{data.title}</h1>
                 <a href={data.link}><h2>Source: {data.source} <Redirect color={'#fff'}/></h2></a>
-                <h2>{data.time}</h2>
+                <h2>{typeof data.time === "string"?data.time:'Tue, 05 May 2023 02:30:00 GMT'}</h2>
                 <div className={styles.votes} style={{color:col}}>
                 <div onClick={()=>{voting(vote===1?0:1);}}><Arrow color={vote===1?col:'#fff'} orientation={'0deg'} /> </div>
                  {vote===0?'Vote':data.votes+vote}

@@ -6,13 +6,14 @@
     // },[summaries]);
 //const { summaries, setSummaries } = useContext(NewsContext);
 import Redirect from '@/images/Redirect';
+import Loading from '@/components/loading';
 import useSWR from 'swr';
 import Collage from './Collage';
 import styles from './TopNews.module.css';
 export default function TopNews(){ 
     const { data, error, isLoading } = useSWR(`/api/top-stories`, (url)=>fetch(url).then(res=>res.json()));
         if(isLoading)
-            return <h1>LOADING...</h1>
+            return <Loading />
         if(error)
             return <h1>ERROR</h1>
         return(

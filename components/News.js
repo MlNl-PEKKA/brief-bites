@@ -15,17 +15,17 @@ export default function News({data}){
     const { sticky } = useContext(NewsContext);
     const [ categ, setCateg] = useState(0);
     return (
-        <div className={styles.newsContainer}>
-            <h1 id="news" style={{fontSize:'20rem'}}>News</h1>
-            <div className={styles.newsCategories} style={{top:sticky,backgroundColor:'black'}}>
-                {categories.map((category,i)=>{return <CategoryButton key={i} id={i} categ={categ} title={category} setCateg={setCateg}/>})}
-            </div>
-            <div className={styles.newsCardContainer}>
-                {data.results[categ].articles.map((article)=>{
-                    return <Card key={article.id} id={article.id} article={article} c={data.results[categ].category}/>
-                })}
-            </div>
+        data && <div className={styles.newsContainer}>
+        <h1 id="news" style={{fontSize:'20rem'}}>News</h1>
+        <div className={styles.newsCategories} style={{top:sticky,backgroundColor:'black'}}>
+            {categories.map((category,i)=>{return <CategoryButton key={i} id={i} categ={categ} title={category} setCateg={setCateg}/>})}
         </div>
+        <div className={styles.newsCardContainer}>
+            {data.results[categ].articles.map((article)=>{
+                return <Card key={article.id} id={article.id} article={article} c={data.results[categ].category}/>
+            })}
+        </div>
+    </div>
     );
 }
 //<Card key={i} image={n.articles[0].image} source={n.articles[0].source} time={n.articles[0].time} title={n.articles[0].title} url={n.articles[0].url}/>

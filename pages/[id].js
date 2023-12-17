@@ -4,6 +4,7 @@ import { initializeApp } from "firebase/app";
 import { doc, getDoc, getFirestore } from "firebase/firestore";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import Loading from "../components/loading";
 const firebaseConfig = {
   apiKey: "AIzaSyDsFlwWnYKHZK_yH3EP-_9CXqGhQ6AZe8Q",
   authDomain: "daily-dose-798fb.firebaseapp.com",
@@ -38,7 +39,7 @@ export default function Home() {
       <Article data={data}/>
     </>:
     <>
-      <h1>Loading...</h1>
+      <Loading />
     </>
   );
 }
