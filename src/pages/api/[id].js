@@ -1,3 +1,4 @@
+import { collection, getDocs } from "firebase/firestore";
 import { db2 } from "../../components/utils";
 const collections = ['business','community','entertainment','health','international','local','national','political','science','sports','technology','top-stories']
 let result = {"result":[]}
