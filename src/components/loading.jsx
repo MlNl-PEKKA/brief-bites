@@ -1,4 +1,4 @@
-import Lottie from 'react-lottie';
+import Lottie from 'lottie-react'
 import animationData from "./../lotties/loading.json";
 export default function Loading() {
     const defaultOptions = {
@@ -13,9 +13,8 @@ export default function Loading() {
     return (
       <div style={{height:"100vh",width:"100vw",color:'white',display:'flex',alignItems:'center',justifyContent:'center',flexDirection:'column'}}>
         <Lottie 
-          options={defaultOptions}
-          height={800}
-          width={800}
+          animationData={defaultOptions.animationData}
+          loop={defaultOptions.loop}
         />
       </div>
     );
