@@ -1,21 +1,10 @@
 import { useContext, useState, useEffect } from 'react';
 import { NewsContext } from '@/context/newsContext';
-// import { NewsContext } from '@/context/newsContext';
-// import { useRouter } from 'next/router';
-// useEffect(()=>{
-    //     fetch(`/api/${category}`).then(response=>response.json()).then(res=>setSummaries(res.result));
-    // },[summaries]);
-//const { summaries, setSummaries } = useContext(NewsContext);
 import Arrow from '@/images/arrow';
 import styles from './Article.module.css';
 import Redirect from '@/images/Redirect';
 import Table from './Table';
 import Table2 from './Table2';
-// import Card from './Card';
-// import { useContext, useState } from 'react';
-// import { NewsContext } from '@/context/newsContext';
-// import CategoryButton from './CategoryButton';
-// const categories = ['Top stories','Local','National','International','Business','Politics','Technology','Health','Sports','Science','Entertainment'];
 const categories = ['Bart', 'Pegasus', 'ChatGPT', 'KLSum', 'LexRank', 'LSA', 'Luhn'];
 const rouges = ['Rouge-1','Rouge-2','Rouge-L'];
 export default function Article({data}){ 
@@ -107,19 +96,8 @@ export function ArticleButton({id, type, title, setType, time, setTime, setRevea
         return <button style={{backgroundColor:'white',color:'black'}}>{title}</button>
     return <button onClick={handleClick}>{title}</button>
 }
-//<Card key={i} image={n.articles[0].image} source={n.articles[0].source} time={n.articles[0].time} title={n.articles[0].title} url={n.articles[0].url}/>
-// const { sticky } = useContext(NewsContext);
-//     const [ categ, setCateg] = useState(0);
-{/* <h1 style={{fontSize:'20rem'}}>News</h1>
-            <div className={styles.newsCategories} style={{top:sticky}}>
-                {categories.map((category,i)=>{return <CategoryButton key={i} id={i} categ={categ} title={category} setCateg={setCateg}/>})}
-            </div>
-            <div className={styles.newsCardContainer}>
-                {data.results[categ].articles.map((article)=>{
-                    return <Card key={article.id} id={article.id} article={article} c={data.results[categ].category}/>
-                })}
-            </div> */}
-            export function ChatAnim({text, time, setTime, typing, setTyping, setReveal }){
+
+export function ChatAnim({text, time, setTime, typing, setTyping, setReveal }){
                 const [innerText, setInnerText] = useState('')
                 useEffect(()=>{
                     setTime(setTimeout(function(){
@@ -129,7 +107,7 @@ export function ArticleButton({id, type, title, setType, time, setTime, setRevea
                         if(innerText.length===text.length){
                             clearTimeout(time);
                             setTime(null);
-                            setTyping(false);
+                            setTyping(false);   
                         }
                     },30))
                     return ()=>{

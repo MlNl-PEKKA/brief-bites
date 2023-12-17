@@ -1,20 +1,10 @@
 import Article from "@/components/Article";
 import Navbar from "@/components/Navbar";
-import { initializeApp } from "firebase/app";
-import { doc, getDoc, getFirestore } from "firebase/firestore";
+import { doc, getDoc } from "firebase/firestore";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import Loading from "../components/loading";
-const firebaseConfig = {
-  apiKey: "AIzaSyDsFlwWnYKHZK_yH3EP-_9CXqGhQ6AZe8Q",
-  authDomain: "daily-dose-798fb.firebaseapp.com",
-  projectId: "daily-dose-798fb",
-  storageBucket: "daily-dose-798fb.appspot.com",
-  messagingSenderId: "559513035612",
-  appId: "1:559513035612:web:81be48edb384beaf8fd799"
-};
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
+import { db } from "../components/utils";
 export default function Home() {
   const [data, setData] = useState(null);
   const router = useRouter();
@@ -27,12 +17,6 @@ export default function Home() {
     if(router.query.id!==undefined)
       fetcher()
   },[router.query.id])
-  // const [data, setData] = useState(null);
-  //   useEffect(()=>{
-  //     fetch('/api/').then(response=>response.json()).then(result=>setData(result.results[0].articles[0]))
-  //   },[]);
-  //   
-  console.log(data)
   return(data?
     <>
       <Navbar />

@@ -1,27 +1,11 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-//import fetch from "node-fetch";
-import { readFile } from 'node:fs/promises';
-import { cwd } from 'node:process';
-import { join } from 'node:path';
-import { initializeApp } from "firebase/app";
-import { doc, getDoc, getFirestore } from "firebase/firestore";
-const firebaseConfig = {
-  apiKey: "AIzaSyDsFlwWnYKHZK_yH3EP-_9CXqGhQ6AZe8Q",
-  authDomain: "daily-dose-798fb.firebaseapp.com",
-  projectId: "daily-dose-798fb",
-  storageBucket: "daily-dose-798fb.appspot.com",
-  messagingSenderId: "559513035612",
-  appId: "1:559513035612:web:81be48edb384beaf8fd799"
-};
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
+import { db2 } from "../../components/utils";
 const collections = ['business','community','entertainment','health','international','local','national','political','science','sports','technology','top-stories']
 let result = {"result":[]}
 async function handler(req, res) {
   try{
-      collections.map((c,i)=>{
+      collections.map(async (c,i)=>{
       let category = {"category":c,"articles":[]}
-      const querySnapshot = await getDocs(collection(db, c));
+      const querySnapshot = await getDocs(collection(db2, c));
       querySnapshot.forEach((doc)=>{
         category.articles.push(doc.data());
       })

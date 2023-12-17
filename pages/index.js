@@ -7,7 +7,6 @@ export default function Home() {
     const [data, setData] = useState(null);
     useEffect(()=>{
       fetch('/api/').then(response=>response.json()).then(result=>setData(result))
-      console.log('Recieved');
     },[]);
         if(!data)
           return <Loading />
